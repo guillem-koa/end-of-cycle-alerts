@@ -1,7 +1,5 @@
+def sendEmail(email_receivers, serial_num, timestamp):
 
-import sys
-
-def main(machine_id):
     from email.message import EmailMessage
     from email.mime.text import MIMEText
     from email.mime.multipart import MIMEMultipart
@@ -9,16 +7,15 @@ def main(machine_id):
     import ssl
     import smtplib
 
-    email_receivers = ['guillem.cobos@koabiotech.com']
-
     email_sender = 'guillem.cobos@koabiotech.com'
     sender_alias = 'lab@koabiotech.com'  # Your alias email address
     email_password = 'yqeq lxsp vdxl nkni'
 
-    subject = f'KOA Biotech - Alerta de Final de Ciclo🧬🔬' 
+    subject = f'KOA Biotech - Alerta de Final de Ciclo⏰🔔' 
     body = f""" 
     <p>Estimado/a cliente/a,</p>
-    <p>Le informamos de que la máquina {machine_id} ha alcanzado un final de ciclo, y está preparada para analizar una nueva muestra.</p>
+    <p>Le informamos de que su máquina Aquagar con número de serie {serial_num} ha alcanzado un final de ciclo el {timestamp}. </p>
+    <p> Su máquina está preparada para analizar una nueva muestra.</p>
     """
 
     email_signature = """
@@ -50,14 +47,3 @@ def main(machine_id):
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context = context) as smtp:
         smtp.login(email_sender, email_password)
         smtp.sendmail(email_sender, email_receivers, em.as_string())
-
-
-if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python_script.py <machine_id>")
-        sys.exit(1)
-    machine_id = int(sys.argv[1])
-    main(machine_id)
-
-
-
