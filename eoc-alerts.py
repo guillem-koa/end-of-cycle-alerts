@@ -41,12 +41,8 @@ id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com', 'sira
 from utils import sendEmail 
 import logging
 
-try:
-    # Configure logging
-    logging.basicConfig(filename='~/end-of-cycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-except:
-    logging.basicConfig(filename='database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
+# Configure logging
+logging.basicConfig(filename='/home/debian/end-of-cycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Send end of cycle email alerts, and log it!
 for row in result:
