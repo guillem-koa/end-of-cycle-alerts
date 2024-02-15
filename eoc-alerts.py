@@ -30,12 +30,12 @@ db_connection.close()
 
 #### 2. & 3. Send alerts and log
 # For now, let's hardcode the relationship between id_maquina and email list
-id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
+id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com']),
                    1181: ('AA-000000-000', ['guillem.cobos@koabiotech.com']), 
                    489: ('AA-202311-992', ['guillem.cobos@koabiotech.com']),
-                   506: ('AA-202310-001', ['guillem.cobos@koabiotech.com']),
-                   592: ('AA-202312-003', ['guillem.cobos@koabiotech.com']),
-                   599: ('AA-202312-002', ['guillem.cobos@koabiotech.com'])
+                   506: ('AA-202310-001', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
+                   592: ('AA-202312-003', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
+                   599: ('AA-202312-002', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com'])
                    }
 
 from utils import sendEmail 
