@@ -45,7 +45,7 @@ from utils import sendMidcycleEmail
 import logging
 
 # Configure logging
-logging.basicConfig(filename='/home/debian/midcycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='/home/debian/end-of-cycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Send end of cycle email alerts, and log it!
 for row in result:
