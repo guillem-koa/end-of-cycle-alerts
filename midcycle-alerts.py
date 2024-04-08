@@ -19,7 +19,7 @@ db_connection = mysql.connector.connect(
 mycursor = db_connection.cursor()
 
 # Now you can execute SQL queries
-mycursor.execute("SELECT * FROM end_of_cycle where EMAIL_SENT = 0")
+mycursor.execute("SELECT * FROM mid_cycle where EMAIL_SENT = 0")
 
 # Fetch the results
 result = mycursor.fetchall()
@@ -33,7 +33,7 @@ db_connection.close()
 id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com']),
                    1181: ('AA-000000-000', ['guillem.cobos@koabiotech.com']), 
                    489: ('AA-202311-992', ['guillem.cobos@koabiotech.com']),
-                   506: ('AA-202310-001', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
+                   506: ('AA-202310-001', ['guillem.cobos@koabiotech.com']),
                    599: ('AA-202312-002', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
                    592: ('AA-202312-003', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
                    1752: ('AA-202312-004', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
@@ -41,20 +41,20 @@ id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com']),
                    2877: ('AA-202312-006', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com'])
                    }
 
-from utils import sendEOCEmail 
+from utils import sendMidcycleEmail 
 import logging
 
 # Configure logging
-logging.basicConfig(filename='/home/debian/end-of-cycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='/home/debian/midcycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Send end of cycle email alerts, and log it!
 for row in result:
     id_maquina, timestamp = row[0], row[1]
-    sendEOCEmail(email_receivers=id_maquina_info[id_maquina][1],
+    sendMidcycleEmail(email_receivers=id_maquina_info[id_maquina][1],
               serial_num=id_maquina_info[id_maquina][0],
               timestamp=timestamp)
     
-    log_message = f"Maquina {id_maquina} acabó un ciclo en {timestamp}. Mail enviado a {id_maquina_info[id_maquina][1]}"
+    log_message = f"Maquina {id_maquina} alcanzó 30h dentro de un ciclo en {timestamp}. Mail enviado a {id_maquina_info[id_maquina][1]}"
     logging.info(log_message)
 
 
@@ -72,7 +72,7 @@ db_connection = mysql.connector.connect(
 mycursor = db_connection.cursor()
 
 # Now you can execute SQL queries
-mycursor.execute("UPDATE end_of_cycle SET EMAIL_SENT = 1")
+mycursor.execute("UPDATE mid_cycle SET EMAIL_SENT = 1")
 
 # Commit transaction
 db_connection.commit()
