@@ -36,9 +36,9 @@ id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com']),
                    506: ('AA-202310-001', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
                    599: ('AA-202312-002', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
                    592: ('AA-202312-003', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
-                   1752: ('AA-202312-004', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
-                   1775: ('AA-202312-005', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
-                   2877: ('AA-202312-006', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com'])
+                   1752: ('AA-202403-004', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
+                   1775: ('AA-202403-005', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
+                   2877: ('AA-202403-006', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com'])
                    }
 
 from utils import sendEOCEmail 
