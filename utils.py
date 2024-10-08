@@ -108,3 +108,5 @@ def get_id_maquina_info(db_connection):
     for row in result:
         id, serial = row[0], row[3]
         dict[id] = (serial, ['guillem.cobos@koabiotech.com'])
+
+    return dict
