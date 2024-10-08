@@ -62,7 +62,6 @@ for row in result:
     logging.info(log_message)
 
 
-
 #### 4. Update *EMAIL_SENT* in the table *end_of_cycle* on MariaDB
     # Create a connection to the MySQL server
 db_connection = mysql.connector.connect(
