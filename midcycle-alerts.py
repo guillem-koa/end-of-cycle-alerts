@@ -53,10 +53,11 @@ logging.basicConfig(filename='/home/debian/end-of-cycle-alerts/database_log.log'
 # Send end of cycle email alerts, and log it!
 for row in result:
     id_maquina, timestamp = row[0], row[1]
-    sendMidcycleEmail(#email_receivers=id_maquina_info[id_maquina][1],
-        email_receivers=['guillem.cobos@koabiotech.com'],
-              serial_num=id_maquina_info[id_maquina][0],
-              timestamp=timestamp)
+    serial_num = id_maquina_info[id_maquina][0]
+    if serial_num in ['AA-202310-001', 'AA-202403-006']:
+        sendMidcycleEmail(email_receivers=id_maquina_info[id_maquina][1],
+                        serial_num=serial_num,
+                        timestamp=timestamp)
     
     log_message = f"Maquina {id_maquina} alcanzó 24h dentro de un ciclo en {timestamp}. Mail enviado a {id_maquina_info[id_maquina][1]}"
     logging.info(log_message)
