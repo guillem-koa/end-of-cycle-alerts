@@ -90,7 +90,6 @@ def sendMidcycleEmail(email_receivers, serial_num, timestamp):
         smtp.login(email_sender, email_password)
         smtp.sendmail(email_sender, email_receivers, em.as_string())
 
-
 def get_id_maquina_info(db_connection):     
     # Create a cursor to execute SQL commands
     mycursor = db_connection.cursor()

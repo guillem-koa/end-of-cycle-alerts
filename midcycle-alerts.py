@@ -26,7 +26,7 @@ mycursor.execute("SELECT * FROM mid_cycle where EMAIL_SENT = 0")
 # Fetch the results
 result = mycursor.fetchall()
 
-# Get id_maquina_info
+# Another db query to get relation between machine id and serial_num (also defines sending emails, preset to guillem.cobos@koabiotech.com and sira.mogas@koabiotech.com)
 id_maquina_info = get_id_maquina_info(db_connection)
 
 # Close the connection when done
