@@ -54,7 +54,7 @@ for row in result:
               serial_num=id_maquina_info[id_maquina][0],
               timestamp=timestamp)
     
-    log_message = f"Maquina {id_maquina} alcanzó 30h dentro de un ciclo en {timestamp}. Mail enviado a {id_maquina_info[id_maquina][1]}"
+    log_message = f"Maquina {id_maquina} alcanzó 24h dentro de un ciclo en {timestamp}. Mail enviado a {id_maquina_info[id_maquina][1]}"
     logging.info(log_message)
 
 

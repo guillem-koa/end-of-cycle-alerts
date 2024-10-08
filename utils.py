@@ -61,11 +61,11 @@ def sendMidcycleEmail(email_receivers, serial_num, timestamp):
     sender_alias = 'lab@koabiotech.com'  # Your alias email address
     email_password = 'yqeq lxsp vdxl nkni'
 
-    subject = f'KOA Biotech - Alerta 30h de ciclo🕛🔔' 
+    subject = f'KOA Biotech - Alerta 24h de ciclo🕛🔔' 
     body = f""" 
     <p>Estimado/a cliente/a,</p>
-    <p>Su máquina Aquagar con número de serie {serial_num} alcanzó 30h dentro de un ciclo el {timestamp}. </p>
-    <p> Quedan 18h para completar el ciclo.</p>
+    <p>Su máquina Aquagar con número de serie {serial_num} alcanzó 24h dentro de un ciclo el {timestamp}. </p>
+    <p> Quedan 24h para completar el ciclo.</p>
     """
 
     email_signature = """
