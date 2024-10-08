@@ -1,5 +1,7 @@
 #### 1. Read DB
 import mysql.connector
+from utils import * 
+import logging
 
 # Replace with your MySQL connection details
 host =  '10.8.0.1'
@@ -24,11 +26,14 @@ mycursor.execute("SELECT * FROM mid_cycle where EMAIL_SENT = 0")
 # Fetch the results
 result = mycursor.fetchall()
 
+# Get id_maquina_info
+id_maquina_info = get_id_maquina_info(db_connection)
+
 # Close the connection when done
 db_connection.close()
 
-
 #### 2. & 3. Send alerts and log
+'''
 # For now, let's hardcode the relationship between id_maquina and email list
 id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com']),
                    1181: ('AA-000000-000', ['guillem.cobos@koabiotech.com']), 
@@ -40,9 +45,7 @@ id_maquina_info = {681: ('AA-202312-994', ['guillem.cobos@koabiotech.com']),
                    1775: ('AA-202403-005', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com']),
                    2877: ('AA-202403-006', ['guillem.cobos@koabiotech.com', 'sira.mogas@koabiotech.com'])
                    }
-
-from utils import sendMidcycleEmail 
-import logging
+'''
 
 # Configure logging
 logging.basicConfig(filename='/home/debian/end-of-cycle-alerts/database_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

@@ -89,3 +89,22 @@ def sendMidcycleEmail(email_receivers, serial_num, timestamp):
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context = context) as smtp:
         smtp.login(email_sender, email_password)
         smtp.sendmail(email_sender, email_receivers, em.as_string())
+
+
+def get_id_maquina_info(db_connection):     
+    # Create a cursor to execute SQL commands
+    mycursor = db_connection.cursor()
+
+    # Now you can execute SQL queries
+    mycursor.execute("SELECT * FROM maquina")
+
+    # Fetch the results
+    result = mycursor.fetchall()
+
+    # Close the connection when done
+    db_connection.close()
+
+    dict = {}
+    for row in result:
+        id, serial = row[0], row[3]
+        dict[id] = (serial, ['guillem.cobos@koabiotech.com'])
